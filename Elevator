@@ -1,0 +1,61 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    cout << "Enter the number of people: ";
+    int people;
+    int exit;
+    cin >> people;
+    if (people <= 10)
+    {
+        int currentFloor = 1;
+        int requestedFloor, requestedFloor2, requestedFloor3;
+        int maxFloor = 10;
+
+        while (true) {
+            cout << "Current floor: " << currentFloor << endl;
+            cout << "Please enter the floor you want to go to (or enter 0 to exit): ";
+            cin >> requestedFloor, requestedFloor2, requestedFloor3;
+
+            if (requestedFloor == 0) {
+                cout << "Exiting elevator..." << endl;
+                break;
+            }
+
+            if (requestedFloor > maxFloor) {
+                cout << "There is no " << requestedFloor << " " << "floor";
+                break;
+            }
+
+            if (requestedFloor == currentFloor) {
+                cout << "You are already on floor " << currentFloor << endl;
+            }
+            else if (requestedFloor > currentFloor) {
+                cout << "Going up..." << endl;
+                while (currentFloor < requestedFloor) {
+                    currentFloor++;
+                    cout << "Floor " << currentFloor << endl;
+                }
+                cout << "You have arrived at floor " << currentFloor << endl;
+            }
+            else {
+                cout << "Going down..." << endl;
+                while (currentFloor > requestedFloor) {
+                    currentFloor--;
+                    cout << "Floor " << currentFloor << endl;
+                }
+                cout << "You have arrived at floor " << currentFloor << endl;
+            }
+        }
+
+        return 0;
+    }
+    else {
+        cout << "dohuya ludei" << endl << "please, vyidite kto - nibudb, a to zastryanete" << endl <<
+            "Esli vyshli, press 1" << endl;
+        cin >> exit;
+        if (exit == 1) {
+            return main();
+        }
+    }
+}
